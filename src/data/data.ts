@@ -1,3 +1,5 @@
+import { tGameData } from "../types/gameTypes";
+
 export const DATA = [
   {
     question: "select animals",
@@ -50,4 +52,4 @@ export const DATA = [
     ],
     good_words: ["car", "bus", "train"],
   },
-];
+] as tGameData[];

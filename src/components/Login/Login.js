@@ -1,18 +1,20 @@
 import { useRouter } from "next/router";
 import React, { useState, useRef } from "react";
+import { useGameContext } from "../../context/game-context";
 import Button from "../Button/Button";
 
 function Login() {
-  const [playerName, setPlayerName] = useState("");
   const nickInputRef = useRef();
   const router = useRouter();
+
+  const { setPlayerName } = useGameContext();
 
   const submitHandler = () => {
     const enteredNick = nickInputRef.current.value;
     setPlayerName(enteredNick);
     router.push("/game");
   };
-  console.log(playerName);
+
   return (
     <div>
       <h1>Wordcloud game</h1>

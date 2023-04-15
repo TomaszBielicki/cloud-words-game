@@ -1,29 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
-import Game from "@/components/Game/Game";
-import { DATA } from "@/data/data";
-function GamePage({ selectedGame }) {
+import Game from "../components/Game/Game";
+import { DATA } from "../data/data";
+import { useGameContext } from "../context/game-context";
+import { randomGame } from "../utils/gameUtils";
+function GamePage({ goodWords, allWords, question }) {
+  const { setGoodWords, setAllWords } = useGameContext();
+  useEffect(() => {
+    setAllWords(allWords);
+    setGoodWords(goodWords);
+  }, []);
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Cloud of words - game</title>
       </Head>
-      <Game selectedGame={selectedGame} />
+      <Game question={question} />
     </>
   );
 }
 
 export async function getServerSideProps() {
-  const gameData = DATA;
+  const { good_words, question, all_words } = randomGame(DATA);
 
-  const randomGame = (gameData) => {
-    const randomIndex = Math.floor(Math.random() * gameData.length);
-    return gameData[randomIndex];
+  return {
+    props: { goodWords: good_words, question, allWords: all_words },
   };
-
-  const randomGameFromTable = randomGame(gameData);
-
-  return { props: { selectedGame: randomGameFromTable } };
 }
 
 export default GamePage;

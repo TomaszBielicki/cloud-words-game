@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ButtonWord = styled.button`
-  background: white;
-
-  color: ${(props) => (props.isClicked ? "orange" : props.textColor)};
+  background: ${(props) => (props.isClicked ? "grey" : "white")};
+  color: ${(props) => props.color};
 `;
