@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import WordButton from "../WordButton/WordButton";
 import { useGameContext } from "../../context/game-context";
-import { setWordColor } from "../../utils/gameUtils";
+import { getWordColor } from "../../utils/gameUtils";
 import {
   Wrapper,
   Title,
@@ -47,29 +47,18 @@ function Game({ question }) {
 
           return (
             <TileWrapper key={word}>
-              {isGameOver && isWordCorrect && isWordSelected ? (
+              {isGameOver && isWordSelected && (
                 <Tile
-                  color={setWordColor(
+                  color={getWordColor(
                     isGameOver,
                     selectedWords,
                     goodWords,
                     word
                   )}
                 >
-                  good
+                  {isWordCorrect ? "good" : "bad"}
                 </Tile>
-              ) : isGameOver && isWordSelected ? (
-                <Tile
-                  color={setWordColor(
-                    isGameOver,
-                    selectedWords,
-                    goodWords,
-                    word
-                  )}
-                >
-                  bad
-                </Tile>
-              ) : null}
+              )}
               <WordButton
                 chooseHandler={chooseHandler}
                 key={word}

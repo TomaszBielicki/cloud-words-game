@@ -1,15 +1,25 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
-import Game from "../components/Game/Game";
+import Game from "../components/Game";
 import { DATA } from "../data/data";
 import { useGameContext } from "../context/game-context";
 import { randomGame } from "../utils/gameUtils";
-function GamePage({ goodWords, allWords, question }) {
+
+//dodać ścieki relatywne
+interface iGame {
+  goodWords: string[];
+  allWords: string[];
+  question: string;
+}
+
+function GamePage({ goodWords, allWords, question }: iGame) {
   const { setGoodWords, setAllWords } = useGameContext();
+
   useEffect(() => {
     setAllWords(allWords);
     setGoodWords(goodWords);
   }, [allWords, goodWords]);
+
   return (
     <>
       <Head>

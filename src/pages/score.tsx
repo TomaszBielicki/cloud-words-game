@@ -1,5 +1,5 @@
 import React from "react";
-import Score from "../components/Score/Score";
+import Score from "../components/Score";
 import Head from "next/head";
 export default function ScorePage() {
   return (

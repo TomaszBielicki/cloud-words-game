@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ButtonWord } from "./WordButton.styles";
 import { useGameContext } from "../../context/game-context";
-import { setWordColor } from "../../utils/gameUtils";
+import { getWordColor } from "../../utils/gameUtils";
 const WordButton = ({ word, chooseHandler }) => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -18,7 +18,7 @@ const WordButton = ({ word, chooseHandler }) => {
         disabled={isGameOver}
         onClick={handleClick}
         isClicked={isClicked}
-        color={setWordColor(isGameOver, selectedWords, goodWords, word)}
+        color={getWordColor(isGameOver, selectedWords, goodWords, word)}
       >
         {word}
       </ButtonWord>
