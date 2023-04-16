@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "../Button/Button";
 import WordButton from "../WordButton/WordButton";
 import { useGameContext } from "../../context/game-context";
-
+import { Wrapper, Title, GameButton, TilesWrapper } from "./Game.styles";
 function Game({ question }) {
   const {
     allWords,
@@ -30,25 +30,21 @@ function Game({ question }) {
   };
 
   return (
-    <>
-      <div>Game</div>
-      <h1>{question}</h1>
-      <div>
+    <Wrapper>
+      <Title>{question}</Title>
+      <TilesWrapper>
         {allWords.map((word) => {
           return (
-            <>
-              <WordButton
-                chooseHandler={chooseHandler}
-                key={word}
-                word={word}
-              />
-            </>
+            <WordButton chooseHandler={chooseHandler} key={word} word={word} />
           );
         })}
-      </div>
-      {isGameOver && <Button onClick={moveToScore}>finish game</Button>}
-      {!isGameOver && <Button onClick={actionHandler}>check answers</Button>}
-    </>
+      </TilesWrapper>
+
+      {isGameOver && <GameButton onClick={moveToScore}>FINISH GAME</GameButton>}
+      {!isGameOver && (
+        <GameButton onClick={actionHandler}>CHECK ANSWERS</GameButton>
+      )}
+    </Wrapper>
   );
 }
 

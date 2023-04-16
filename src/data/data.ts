@@ -2,7 +2,7 @@ import { tGameData } from "../types/gameTypes";
 
 export const DATA = [
   {
-    question: "select animals",
+    question: "Select animals",
     all_words: [
       "hole",
       "sofa",
@@ -20,7 +20,7 @@ export const DATA = [
     good_words: ["tiger", "cow"],
   },
   {
-    question: "select colors",
+    question: "Select colors",
     all_words: [
       "jeans",
       "existence",
@@ -38,7 +38,7 @@ export const DATA = [
     good_words: ["red", "blue", "yellow", "white", "black"],
   },
   {
-    question: "select vehicles",
+    question: "Select vehicles",
     all_words: [
       "belief",
       "wire",
