@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colorlightPurple } from "../../styles/colors";
+import { colorLightPurple } from "../../styles/colors";
 import Button from "../Button/Button";
 
 export const Wrapper = styled.div`
@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   color: white;
   height: 100vh;
-  background-color: ${colorlightPurple};
+  background-color: ${colorLightPurple};
   font-size: 20px;
 
   @media (min-width: 1000px) {
@@ -17,11 +17,11 @@ export const Wrapper = styled.div`
   }
 `;
 export const Title = styled.h1`
-  margin: 0px;
+  margin: 5% 10%;
+  text-align: center;
 `;
 export const ScoreTile = styled.div`
   margin: 20px;
 `;
 
-export const Text = styled.p``;
 export const ScoreButton = styled(Button)``;
