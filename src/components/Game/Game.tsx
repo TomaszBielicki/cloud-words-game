@@ -46,7 +46,7 @@ function Game({ question }) {
           const isWordCorrect = goodWords.includes(word);
 
           return (
-            <TileWrapper>
+            <TileWrapper key={word}>
               {isGameOver && isWordCorrect && isWordSelected ? (
                 <Tile
                   color={setWordColor(

@@ -27,7 +27,7 @@ function Score() {
 
     setScore(score);
     if (score < 0) setScore(0);
-  }, []);
+  }, [goodWords, selectedWords]);
 
   const homePageHandler = () => {
     setSelectedWords([]);

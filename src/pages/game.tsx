@@ -9,7 +9,7 @@ function GamePage({ goodWords, allWords, question }) {
   useEffect(() => {
     setAllWords(allWords);
     setGoodWords(goodWords);
-  }, []);
+  }, [allWords, goodWords]);
   return (
     <>
       <Head>
