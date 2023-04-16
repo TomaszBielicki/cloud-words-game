@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import { useGameContext } from "../../context/game-context";
-import Button from "../Button/Button";
 import {
   Title,
   Wrapper,
@@ -12,14 +11,14 @@ import {
 } from "./Login.styles";
 
 function Login() {
-  const nickInputRef = useRef();
+  const nickInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
   const { setPlayerName } = useGameContext();
 
   const submitHandler = () => {
-    const enteredNick = nickInputRef.current.value;
-    setPlayerName(enteredNick);
+    const enteredNick = nickInputRef.current?.value;
+    setPlayerName(enteredNick ?? "");
     router.push("/game");
   };
 
@@ -28,7 +27,15 @@ function Login() {
       <Content>
         <Title>Wordcloud game</Title>
         <Label htmlFor="nick">Enter you nick name here</Label>
-        <Input type="text" id="nick" ref={nickInputRef} required></Input>
+        <Input
+          type="text"
+          id="nick"
+          ref={nickInputRef}
+          minLength={3}
+          maxLength={15}
+          required
+          placeholder="Nickname"
+        ></Input>
         <LoginButton onClick={submitHandler}>Start game</LoginButton>
       </Content>
     </Wrapper>

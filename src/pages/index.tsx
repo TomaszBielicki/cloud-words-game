@@ -1,16 +1,14 @@
 import Login from "../components/Login/Login";
 import Head from "next/head";
-import React, { useState, useRef } from "react";
+import React from "react";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Cloud of words - login</title>
       </Head>
-      <>
-        <Login />
-      </>
+      <Login />
     </>
   );
 }

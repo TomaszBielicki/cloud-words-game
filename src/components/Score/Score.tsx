@@ -1,13 +1,14 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { useGameContext } from "../../context/game-context";
-import { Title, Text, ScoreTile, Wrapper, ScoreButton } from "./Score.styled";
+import { Title, ScoreTile, Wrapper, ScoreButton } from "./Score.styles";
 
 function Score() {
-  const { goodWords, selectedWords, playerName, setIsGameOver } =
+  const { goodWords, selectedWords, playerName, isGameOver, setSelectedWords } =
     useGameContext();
   const router = useRouter();
-  const [score, setScore] = useState(0);
+
+  const [score, setScore] = useState<number>(0);
 
   useEffect(() => {
     const correctSelected = selectedWords.filter((word) =>
@@ -25,24 +26,20 @@ function Score() {
       (incorrectSelected.length + notSelected.length);
 
     setScore(score);
-    if (score < 0) {
-      setScore(0);
-    }
+    if (score < 0) setScore(0);
   }, []);
 
   const homePageHandler = () => {
-    setIsGameOver(false);
+    setSelectedWords([]);
     router.push("/");
   };
 
   return (
     <Wrapper>
       <Title>Congratulations, {playerName}</Title>
-      <Text>Your score : </Text>
+      <p>Your score : </p>
       <ScoreTile>{score} points</ScoreTile>
-      <ScoreButton onClick={homePageHandler}>
-        Wróc do strony głownej
-      </ScoreButton>
+      <ScoreButton onClick={homePageHandler}>BACK TO HOME</ScoreButton>
     </Wrapper>
   );
 }
