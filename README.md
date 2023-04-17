@@ -17,8 +17,9 @@ Usage
 2. The score is calculated based on the number of correct and incorrect answers selected.
 
 Development
-Run yarn install to install dependencies.
-Run yarn dev to start the development server.
+
+1.Run yarn install to install dependencies.       
+2.Run yarn dev to start the development server.
 
 Technologies Used
 
@@ -27,4 +28,5 @@ Styled Components
 TypeScript
 
 Credits
+
 This game was created by Tomasz Bielicki.
